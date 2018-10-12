@@ -1,0 +1,37 @@
+{% macro messages_list(messages, total) %}
+
+<h1>Messages:</h1>
+
+<table class="table table-bordered table-hover table-sm table-responsive d-table">
+  <caption>
+{%- if total %}
+  Total: {{ total }}
+{%- else %}
+  No messages
+{%- endif %}
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Author</th>
+      <th scope="col">Message</th>
+      <th scope="col">Created</th>
+      <th scope="col">Updated</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+{%- for message in messages %}
+    <tr>
+      <td><i class="inactive">{{ loop.index }}</i></td>
+      <th scope="row">{{ message.author }}</th>
+      <td>{{ message.message }}</td>
+      <td>{{ message.created }}</td>
+      <td>{{ message.updated }}</td>
+      <td><a href="{{ url_for('message_edit', id=message.id) }}" data-toggle="modal" data-target="#iaModal"><i class="fa fa-edit"></i></a></td>
+    </tr>
+{%- endfor %}
+  </tbody>
+</table>
+
+{%- endmacro %}

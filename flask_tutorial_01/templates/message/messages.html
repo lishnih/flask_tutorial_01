@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{%- block body %}
+
+{%- from "message/_message.html" import messages_list %}
+{{ messages_list(messages, total) }}
+
+<p>
+  <a href="{{ url_for('message_add') }}" data-toggle="modal" data-target="#iaModal"><i class="fa fa-plus"></i>Add new message</a>
+</p>
+
+{%- endblock %}
