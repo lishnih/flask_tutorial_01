@@ -23,6 +23,3 @@ class Message(db.Model):      # Rev. 2018-10-10
     updated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, \
         onupdate=datetime.utcnow)
     deleted = db.Column(db.Boolean, nullable=False, default=False)
-
-    def __repr__(self):
-        return '<Message {0!r}>'.format(self.name)
