@@ -15,21 +15,16 @@ from ..forms.message import MessageForm
 from ..models.message import Message
 
 
-# ===== Routes =====
+# ===== Interface =====
 
-def render_ext(template_name, default=None, message=None, format=None, **context):
+def render_ext(template_name_or_list, default=None, message="", format=None, **context):
     format = format or request.values.get('format')
 
-    result = None
+    result = "success"
     if isinstance(message, tuple):
         message, result = message
 
-#     if not debug_permission.can():
-#         context.pop('debug', '')
-
 #     if format == 'json':
-#         context = {k: v for k, v in context.items() if k in \
-#             ['action', 'rows', 'debug']}
 #         return jsonify(dict(
 #             result = result,
 #             message = message,
@@ -42,8 +37,8 @@ def render_ext(template_name, default=None, message=None, format=None, **context
     if isinstance(default, Response) and not format:
         return default
 
-    return "No view defined!" if not template_name else \
-        render_template(template_name,
+    return "No template defined!" if not template_name_or_list else \
+        render_template(template_name_or_list,
             modal = format == 'modal',
             **context
         )

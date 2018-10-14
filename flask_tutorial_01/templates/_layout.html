@@ -22,6 +22,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+{%- block head %}
+{%- endblock %}
+{%- block head_base %}
+{%- endblock %}
 </head>
 
 <body>
@@ -48,7 +53,9 @@
 
 {%- block body %}
 {%- endblock %}
-{%- block body2 %}
+{%- block body_base %}
+{%- endblock %}
+{%- block body_footer %}
 {%- endblock %}
 
 
@@ -72,6 +79,12 @@
 
 <!-- Site-specified scripts -->
 <script src="{{ app_root }}/js/modal.js"></script>
+
+
+{%- block script %}
+{%- endblock %}
+{%- block script_base %}
+{%- endblock %}
 
 
 </body>

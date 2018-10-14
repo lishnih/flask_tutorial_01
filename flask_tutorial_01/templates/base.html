@@ -2,8 +2,8 @@
 {%- else %}{% extends "_modal.html" %}
 {%- endif %}
 
-{%- block body2 %}
 
+{%- block body_base %}
 
 {%- if html %}
 {%- autoescape false %}
@@ -17,6 +17,5 @@
 {{ text }}
 </pre>
 {%- endif %}
-
 
 {%- endblock %}
