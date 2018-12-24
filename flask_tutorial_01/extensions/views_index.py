@@ -48,8 +48,7 @@ def render_ext(template_name_or_list, default=None, message="", format=None, **c
 
 @app.route("/", methods=['GET', 'POST'])
 def messages():
-    engine = db.session.bind
-    if not engine.dialect.has_table(engine, "messages"):
+    if not db.engine.dialect.has_table(db.engine, "messages"):
         db.create_all()
 
     return render_template("message/messages.html",
